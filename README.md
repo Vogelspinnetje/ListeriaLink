@@ -1,20 +1,28 @@
 # README pipeline BNGP
 
+## Wat doet de pipeline?
+Deze pipeline is gemaakt voor onderzoek naar de bacterie *Listeria monocytogenes*. De pipeline is getest op 43 Oxford Nanopore reads. Deze data zijn verkregen op het
+LCAB voor een onderzoek naar de aanwezigheid van deze pathogene bacterie in de voedselverwerkende industrie. Om de herkomst van uitbraken in kaart te brengen, is het 
+belangrijk om de verwantschap tussen de *L. Monocytogenes* samples te bepalen. Door deze resulaten valt te herleiden of de uitbraak door een stam wordt veroorzaakt of
+door verschillende onafhankelijke stammen. In deze pipeline wordt de verwantschap op twee verschillende wijzen bepaald: op basis van SNP's, en op basis van whole genome
+hash sketches. De output van deze pipeline bestaat uit twee fylogenetische bomen (een van SNP en de ander van de hash sketches). 
+
 ## PIPELINE UITVOEREN:
 Om de pipeline van BNGP uit te voeren, gebruik je de volgende command:
 
 `snakemake --cores <aantal beschikbare cores> --resources lock=1`
 
 ## CONFIGURATIE:
-In de config.yaml kan je 6 waardes aanpassen.
-Bij DIRECTORY_FQ moet je het pad opgeven waar de raw reads zitten.
-Bij REFGENOME en REFGENOME_BASE_NAME moet je het pad naar het referentiegenoom opgeven en de basename van het referentiegenoom (dus zonder pad).
-Voor het bewerken en filteren van de reads, zijn er 3 parameters.
-TRIM_BASES bepaalt hoeveel basen van je reads aan beide kanten worden verwijderd.
-MIN_PHRED bepaalt welke gemiddelde PHRED waarde je reads minimaal moeten hebben.
-MIN_LENGTH bepaalt wat de minimale lengte van je reads moet zijn.
+In de config.yaml kan je 6 waardes aanpassen:
+- Bij DIRECTORY_FQ moet je het pad opgeven waar de raw reads zitten.
+- Bij REFGENOME en REFGENOME_BASE_NAME moet je het pad naar het referentiegenoom opgeven en de basename van het referentiegenoom (dus zonder pad).
+- Voor het bewerken en filteren van de reads, zijn er 3 parameters.
+- TRIM_BASES bepaalt hoeveel basen van je reads aan beide kanten worden verwijderd.
+- MIN_PHRED bepaalt welke gemiddelde PHRED waarde je reads minimaal moeten hebben.
+- MIN_LENGTH bepaalt wat de minimale lengte van je reads moet zijn.
 
 ## OUTPUT FILES:
+Uit de pipeline komen de volgende output files:
 - qc_results/ -> De resultaten van de QC. In het mapje 'old' staan de QC's van de oude reads, in edited staan de QC's van de bewerkte reads.
 - edited_fastq/ -> Mapje met de bewerkte reads.
 - BAM/ -> De gesorteerde bam bestanden.
@@ -50,3 +58,5 @@ De functie leest het fastq bestand weer per read in.
 - De gemiddelde phred scores worden berekend. Als deze score onder de minimale phred score valt, wordt deze niet opgeslagen in het nieuwe bestand.
 
 Dit gaat zo door, totdat het fastq bestand helemaal is uitgelezen.
+
+---
