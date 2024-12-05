@@ -220,4 +220,4 @@ rule make_flye_tree:
     output:
         tree="flye_tree.newick"
     shell:
-        "python /exports/BNGP/scripts/dist_to_newick.py {input.comparison} {output.tree}"
+        "python " + config["DIST_TO_NEWICK"] + " {input.comparison} {output.tree}"

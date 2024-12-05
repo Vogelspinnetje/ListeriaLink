@@ -9,3 +9,5 @@ REFGENOME_BASE_NAME: listeria-edge.fa
 TRIM_BASES: 5
 MIN_PHRED: 12.0
 MIN_LENGTH: 500
+
+DIST_TO_NEWICK: /exports/BNGP/scripts/dist_to_newick.py 
