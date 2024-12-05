@@ -60,3 +60,4 @@ De functie leest het fastq bestand weer per read in.
 Dit gaat zo door, totdat het fastq bestand helemaal is uitgelezen.
 
 ---
+Deze opdracht is voorgedragen door Hogeschool Leiden, Bio-Informatica.
