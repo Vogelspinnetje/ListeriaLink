@@ -4,6 +4,9 @@ import json
 
 
 def top_five(seq: str, nor: int, avg_pps: float, header: str, subject: list[tuple[int, int, dict]], marker: int) -> list[tuple[int, int, dict]]:
+    """
+    Berekent de top 5.
+    """
     if len(subject) < 5:
         read_data = (marker, nor, {"read_length": len(seq),
                                          "phred": avg_pps,
@@ -20,6 +23,9 @@ def top_five(seq: str, nor: int, avg_pps: float, header: str, subject: list[tupl
 
 
 def distrubutions(marker: int, subject: dict) -> dict:
+    """
+    Berekent de distrubutions.
+    """
     afronding = str(marker)
     if afronding in subject:
         subject[afronding] += 1
