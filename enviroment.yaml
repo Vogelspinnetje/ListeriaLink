@@ -1,0 +1,14 @@
+name: snakemake_pipeline
+channels:
+  - bioconda
+  - conda-forge
+dependencies:
+  - python=3.9
+  - snakemake
+  - pyyaml
+  - minimap2
+  - samtools
+  - bcftools
+  - iqtree
+  - flye
+  - sourmash
